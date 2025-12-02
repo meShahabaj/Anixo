@@ -29,10 +29,10 @@ const Footer: React.FC = () => {
                 <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
                     <ul className="space-y-2">
-                        <li><a href="#about" className="hover:text-blue-500 transition-colors">About</a></li>
+                        <li><a href="#/about" className="hover:text-blue-500 transition-colors">About</a></li>
                         <li><a href="#services" className="hover:text-blue-500 transition-colors">Services</a></li>
                         {/* <li><a href="#resources" className="hover:text-blue-500 transition-colors">Resources</a></li> */}
-                        <li><a href="#contact" className="hover:text-blue-500 transition-colors">Contact</a></li>
+                        <li><a href="#/contact" className="hover:text-blue-500 transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
@@ -53,17 +53,13 @@ const Footer: React.FC = () => {
                     <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
                     <p>Email: <a href="shahabaj773@gmail.com" className="hover:text-blue-500 transition-colors">shahabaj773@gmail.com</a></p>
                     <p>Phone: <a href="tel:+919336934551" className="hover:text-blue-500 transition-colors">+91 9336934551</a></p>
-                    {/* <p className="mt-2">123 Business St, Tech City, USA</p> */}
                 </div>
 
                 {/* Social Media */}
                 <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Follow Us</h3>
                     <div className="flex flex-col space-y-2 mt-2">
-                        <a href="#" className="hover:text-blue-500 transition-colors flex items-center gap-2"><FaFacebookF /> Facebook</a>
-                        <a href="#" className="hover:text-blue-500 transition-colors flex items-center gap-2"><FaTwitter /> Twitter</a>
-                        <a href="#" className="hover:text-blue-500 transition-colors flex items-center gap-2"><FaLinkedinIn /> LinkedIn</a>
-                        <a href="#" className="hover:text-blue-500 transition-colors flex items-center gap-2"><FaInstagram /> Instagram</a>
+                        <a href="https://www.linkedin.com/in/shahabaj-khan/" className="hover:text-blue-500 transition-colors flex items-center gap-2"><FaLinkedinIn /> LinkedIn</a>
                     </div>
                 </div>
             </div>

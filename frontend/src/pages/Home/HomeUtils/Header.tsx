@@ -143,14 +143,14 @@ const Header: React.FC = () => {
                         )}
                     </div>
 
-                    <a href="/#/about" className="hover:text-blue-600 transition-colors py-2">
+                    <a href="#/about" className="hover:text-blue-600 transition-colors py-2">
                         About
                     </a>
                     {/* <a href="/#/about" className="hover:text-blue-600 transition-colors py-2">
                         Resources
                     </a> */}
                     <a
-                        href="/#/contact"
+                        href="#/contact"
                         className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-xl hover:shadow-2xl transition-all text-center font-semibold"
                     >
                         Contact Us

@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 
                 {/* Logo */}
                 <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">
-                    <Link to="/">Plantora</Link>
+                    <Link to="/">Anixo</Link>
                 </div>
 
                 {/* Desktop Navigation */}

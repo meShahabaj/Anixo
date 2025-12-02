@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 {/* Logo & Description */}
                 <div>
                     <h2 className="text-2xl font-extrabold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">
-                        Plantora
+                        Anixo
                     </h2>
                     <p className="text-gray-400">
                         We create modern websites, apps, and AI solutions that help your business grow and stay ahead in the digital world.
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="mt-12 text-center text-white-500">
-                &copy; {new Date().getFullYear()} Plantora. All rights reserved.
+                &copy; {new Date().getFullYear()} Anixo. All rights reserved.
             </div>
         </footer>
     );

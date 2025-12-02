@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import Header from "../Home/HomeUtils/Header.tsx";
 import Footer from "../Home/HomeUtils/Footer.tsx";
 

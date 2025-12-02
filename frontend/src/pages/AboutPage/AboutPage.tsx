@@ -3,12 +3,6 @@ import { GlobeAltIcon, LightBulbIcon, UsersIcon } from "@heroicons/react/24/soli
 import Footer from "../Home/HomeUtils/Footer.tsx";
 import Header from "../Home/HomeUtils/Header.tsx";
 
-const teamMembers = [
-    { name: "Alice Johnson", role: "CEO & Founder" },
-    { name: "Bob Smith", role: "Lead Developer" },
-    { name: "Clara Lee", role: "AI Specialist" },
-];
-
 const AboutPage: React.FC = () => {
     return (
         <div className="bg-gray-50 min-h-screen">

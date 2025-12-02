@@ -120,10 +120,7 @@ const ContactPage: React.FC = () => {
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">Follow Us</h2>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors"><FaFacebookF /></a>
-                            <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors"><FaTwitter /></a>
-                            <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors"><FaLinkedinIn /></a>
-                            <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors"><FaInstagram /></a>
+                            <a href="https://www.linkedin.com/in/shahabaj-khan/" className="text-gray-600 hover:text-blue-500 transition-colors"><FaLinkedinIn /></a>
                         </div>
                     </div>
 

@@ -1,6 +1,7 @@
 // src/App.js
 import { Suspense, lazy } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import WakeUp from "./WakeUp.tsx";
 
 const Pages = [
   { routePath: "/", filePath: "./pages/Home/Home.tsx" },
@@ -21,6 +22,7 @@ const Loading = () => (
 function App() {
   return (
     <Router>
+      <WakeUp />
       <Suspense fallback={<Loading />}>
         <Routes>
           {Pages.map((r) => {

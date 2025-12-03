@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-gray-900 text-gray-300 pt-24">
             {/* Footer Main */}
-            <div className="container mx-auto px-6 grid md:grid-cols-5 gap-12">
+            <div className="container mx-auto px-6 grid md:grid-cols-4 gap-12">
                 {/* Logo & Description */}
                 <div>
                     <h2 className="text-2xl font-extrabold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">
@@ -51,15 +51,19 @@ const Footer: React.FC = () => {
                 {/* Contact Info */}
                 <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
-                    <p>Email: <a href="shahabaj773@gmail.com" className="hover:text-blue-500 transition-colors">shahabaj773@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+919336934551" className="hover:text-blue-500 transition-colors">+91 9336934551</a></p>
-                </div>
-
-                {/* Social Media */}
-                <div>
-                    <h3 className="text-xl font-semibold text-white mb-4">Follow Us</h3>
+                    <p>Email: <a href="mailto:https://anixosolutions@gmail.com"
+                        className="hover:text-blue-500 transition-colors"
+                    >
+                        anixosolutions@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+919336934551"
+                        className="hover:text-blue-500 transition-colors"
+                    >
+                        +91 9336934551</a></p>
                     <div className="flex flex-col space-y-2 mt-2">
-                        <a href="https://www.linkedin.com/in/shahabaj-khan/" className="hover:text-blue-500 transition-colors flex items-center gap-2"><FaLinkedinIn /> LinkedIn</a>
+                        <a href="https://www.linkedin.com/company/anixo"
+                            target="_blank" rel="noopener noreferrer"
+                            className="hover:text-blue-500 transition-colors
+                        flex items-center gap-2"><FaLinkedinIn /> LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -70,5 +74,6 @@ const Footer: React.FC = () => {
         </footer>
     );
 };
+
 
 export default Footer;

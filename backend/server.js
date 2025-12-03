@@ -9,13 +9,14 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 8000;
-const FRONTEND_URL = process.env.FRONTEND_URL
 const ADMIN_MAIL = process.env.ADMIN_MAIL
-const ADMIN_MAIL_1 = process.env.ADMIN_MAIL_1
-const ADMIN_MAIL_1_PASS = process.env.ADMIN_MAIL_1_PASS
 
 app.use(express.json())
 app.use(cors());
+
+app.get("/", (req, res) => {
+    return res.json({ success: true, message: "Server Waked up" });
+})
 
 app.post("/mailAdmin", async (req, res) => {
 
@@ -25,8 +26,8 @@ app.post("/mailAdmin", async (req, res) => {
 
         await resend.emails.send({
             from: 'onboarding@resend.dev',
-            to: email,
-            subject: `${name} sent a message`,
+            to: ADMIN_MAIL,
+            subject: `${name}, ${email} sent a message`,
             html: `<p><strong>${message}</strong>!</p>`
         });
         res.json({ success: true, message: "Mail sent to admin" });

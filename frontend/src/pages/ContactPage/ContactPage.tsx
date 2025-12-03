@@ -100,7 +100,7 @@ const ContactPage: React.FC = () => {
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Information</h2>
                         <p className="text-gray-600 mb-2">
-                            <strong>Email:</strong> <a href="mailto:info@consultco.com" className="text-blue-500">shahabaj773@gmail.com</a>
+                            <strong>Email:</strong> <a href="mailto:anixosolutions@gmail.com" className="text-blue-500">anixosolutions@gmail.com</a>
                         </p>
                         <p className="text-gray-600 mb-2">
                             <strong>Phone:</strong> <a href="tel:+919336934551" className="text-blue-500">+91 9336934551</a>
@@ -113,7 +113,7 @@ const ContactPage: React.FC = () => {
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">Follow Us</h2>
                         <div className="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/shahabaj-khan/" className="text-gray-600 hover:text-blue-500 transition-colors"><FaLinkedinIn /></a>
+                            <a href="https://www.linkedin.com/company/anixo" className="text-gray-600 hover:text-blue-500 transition-colors"><FaLinkedinIn /></a>
                         </div>
                     </div>
 

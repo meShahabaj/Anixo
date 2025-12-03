@@ -16,7 +16,7 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-8 flex justify-between items-center h-20">
 
                 {/* Logo */}
-                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">
+                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">
                     <Link to="/">Anixo</Link>
                 </div>
 
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
                     {/* Contact Button */}
                     <Link
                         to="/contact"
-                        className="ml-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl hover:shadow-2xl transition-all font-semibold text-lg"
+                        className="ml-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-xl hover:shadow-2xl transition-all font-semibold text-lg"
                     >
                         Contact Us
                     </Link>

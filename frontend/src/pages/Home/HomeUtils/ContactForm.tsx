@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const ContactForm: React.FC = () => {
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+
+    console.log(BACKEND_URL)
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        subject: "",
         message: "",
     });
 
@@ -12,11 +16,11 @@ const ContactForm: React.FC = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(formData);
-        alert("Form submitted! We'll get back to you soon.");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        const res = await axios.post(`${BACKEND_URL}/mailAdmin`, formData)
+        alert("massege sent");
+        setFormData({ name: "", email: "", message: "" });
     };
 
     return (
@@ -54,15 +58,7 @@ const ContactForm: React.FC = () => {
                         />
                     </div>
 
-                    <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="Subject"
-                        required
-                        className="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                    />
+
 
                     <textarea
                         name="message"

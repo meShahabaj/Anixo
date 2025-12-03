@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 import Header from "../Home/HomeUtils/Header.tsx";
 import Footer from "../Home/HomeUtils/Footer.tsx";
+import axios from "axios";
+
 
 const ContactPage: React.FC = () => {
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        subject: "",
         message: "",
     });
 
@@ -15,11 +18,11 @@ const ContactPage: React.FC = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would integrate with an API or email service
-        alert("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        const res = await axios.post(`${BACKEND_URL}/mailAdmin`, formData)
+        alert("massege sent");
+        setFormData({ name: "", email: "", message: "" });
     };
 
     return (
@@ -68,16 +71,6 @@ const ContactPage: React.FC = () => {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 font-medium mb-1">Subject</label>
-                            <input
-                                type="text"
-                                name="subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                                required
-                                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Subject"
-                            />
                         </div>
 
                         <div>

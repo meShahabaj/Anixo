@@ -13,7 +13,7 @@ const technologies = [
 // Fixed variants type
 const sliderVariants: Variants = {
     animate: {
-        x: ["0%", "-50%"], // slide from 0% to -50%
+        x: ["0%", "-50%"],
         transition: {
             x: {
                 repeat: Infinity,

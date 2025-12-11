@@ -34,7 +34,9 @@ const SliderBanner: React.FC = () => {
     const handleNext = () => setCurrent((prev) => (prev + 1) % slides.length);
 
     return (
-        <section className="relative w-full h-[80vh] overflow-hidden text-white">
+        // <section className="relative w-full h-[20vh] overflow-hidden text-white">
+        <section className="relative w-full h-[30vh] sm:h-[5vh] md:h-[30vh] lg:h-[60vh] overflow-hidden text-white">
+
             <AnimatePresence mode="wait">
                 {slides.map((slide, index) =>
                     index === current ? (

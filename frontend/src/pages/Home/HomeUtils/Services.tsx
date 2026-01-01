@@ -1,52 +1,95 @@
 import React from "react";
-import { CodeBracketIcon, DevicePhoneMobileIcon, CpuChipIcon } from "@heroicons/react/24/solid";
+import {
+    CodeBracketIcon,
+    DevicePhoneMobileIcon,
+    CpuChipIcon,
+} from "@heroicons/react/24/outline";
 
 const services = [
     {
-        title: "Web Development",
-        description: "Build responsive, modern, and high-performing websites tailored to your business needs.",
-        icon: <CodeBracketIcon className="w-12 h-12 text-blue-600" />,
+        title: "Enterprise Web Platforms",
+        description:
+            "Robust, secure, and scalable web platforms designed to support complex business operations and growth.",
+        points: ["Custom Architecture", "High Performance", "Security First"],
+        icon: CodeBracketIcon,
     },
     {
-        title: "App Development",
-        description: "Custom mobile and web applications designed to scale and delight your users.",
-        icon: <DevicePhoneMobileIcon className="w-12 h-12 text-green-500" />,
+        title: "Custom Applications",
+        description:
+            "Web and mobile applications built for reliability, scalability, and seamless user experience.",
+        points: ["iOS & Android", "Cloud-Native", "API Integrations"],
+        icon: DevicePhoneMobileIcon,
     },
     {
-        title: "AI Solutions",
-        description: "Implement AI-powered solutions to automate, analyze, and optimize your business processes.",
-        icon: <CpuChipIcon className="w-12 h-12 text-pink-500" />,
+        title: "AI & Intelligent Automation",
+        description:
+            "Data-driven AI solutions that optimize processes, reduce costs, and unlock actionable insights.",
+        points: ["Machine Learning", "Process Automation", "Advanced Analytics"],
+        icon: CpuChipIcon,
     },
 ];
 
 const Services: React.FC = () => {
     return (
-        <section className="py-20 bg-gray-50">
-            <div className="container mx-auto px-6 text-center">
-                <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
-                    Our Services
-                </h2>
-                <p className="text-gray-600 mb-12 text-lg">
-                    We offer a wide range of technology solutions to help your business grow and succeed.
-                </p>
+        <section className="py-24 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-6">
 
-                <div className="grid md:grid-cols-3 gap-10">
-                    {services.map((service, idx) => (
-                        <div
-                            key={idx}
-                            className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 group cursor-pointer"
-                        >
-                            <div className="mb-6 flex justify-center">
-                                <div className="p-4 bg-gray-100 rounded-full group-hover:bg-gradient-to-r from-blue-500 to-indigo-500 transition-all">
-                                    {service.icon}
+                {/* Header */}
+                <div className="max-w-3xl mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Technology Solutions for Modern Businesses
+                    </h2>
+                    <p className="text-lg text-gray-600">
+                        We partner with organizations to design, build, and scale digital
+                        solutions that deliver long-term business value.
+                    </p>
+                </div>
+
+                {/* Services Grid */}
+                <div className="grid gap-8 md:grid-cols-3">
+                    {services.map((service, idx) => {
+                        const Icon = service.icon;
+                        return (
+                            <div
+                                key={idx}
+                                className="
+                  bg-white rounded-2xl p-8
+                  border border-gray-100
+                  shadow-sm hover:shadow-lg
+                  transition-all
+                "
+                            >
+                                {/* Icon */}
+                                <div className="mb-6">
+                                    <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center">
+                                        <Icon className="w-7 h-7 text-blue-600" />
+                                    </div>
                                 </div>
+
+                                {/* Content */}
+                                <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                                    {service.title}
+                                </h3>
+
+                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                    {service.description}
+                                </p>
+
+                                {/* Capability Points */}
+                                <ul className="space-y-2">
+                                    {service.points.map((point, i) => (
+                                        <li
+                                            key={i}
+                                            className="flex items-center text-sm text-gray-500"
+                                        >
+                                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-3" />
+                                            {point}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <h3 className="text-2xl font-semibold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">
-                                {service.title}
-                            </h3>
-                            <p className="text-gray-600">{service.description}</p>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

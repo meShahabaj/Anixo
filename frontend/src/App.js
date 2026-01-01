@@ -2,6 +2,7 @@
 import { Suspense, lazy } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import WakeUp from "./WakeUp.tsx";
+import "./App.css"
 
 const Pages = [
   { routePath: "/", filePath: "./pages/Home/Home.tsx" },

@@ -1,101 +1,138 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+    Server,
+    Cloud,
+    Database,
+    Smartphone,
+    Monitor,
+    ShieldCheck,
+    Brain,
+    Bot,
+    LineChart,
+} from "lucide-react";
 
 const slides = [
     {
-        title: "We Build Stunning Websites",
-        subtitle: "Responsive, modern, and optimized to convert visitors into customers.",
-        bg: "from-blue-600 to-indigo-700",
+        title: "Enterprise-Grade Software Solutions",
+        subtitle:
+            "We design and build scalable digital systems that streamline operations and drive measurable growth.",
+        bg: "from-blue-700 to-indigo-800",
+        icons: [Server, Cloud, Database],
     },
     {
-        title: "Custom Mobile & Web Apps",
-        subtitle: "Delivering high-performance applications tailored to your business needs.",
-        bg: "from-purple-600 to-pink-600",
+        title: "Custom Web & Mobile Applications",
+        subtitle:
+            "Secure, high-performance platforms engineered for long-term business success.",
+        bg: "from-slate-700 to-slate-900",
+        icons: [Smartphone, Monitor, ShieldCheck],
     },
     {
-        title: "AI-Powered Solutions",
-        subtitle: "Harness the power of artificial intelligence to transform your business.",
-        bg: "from-green-600 to-teal-600",
+        title: "AI & Automation for Modern Businesses",
+        subtitle:
+            "Reduce costs, improve efficiency, and gain insights with intelligent automation.",
+        bg: "from-emerald-700 to-teal-800",
+        icons: [Brain, Bot, LineChart],
     },
 ];
 
 const SliderBanner: React.FC = () => {
     const [current, setCurrent] = useState(0);
 
-    // Auto-slide every 6 seconds
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrent((prev) => (prev + 1) % slides.length);
-        }, 6000);
-        return () => clearInterval(interval);
+        const timer = setInterval(
+            () => setCurrent((c) => (c + 1) % slides.length),
+            7000
+        );
+        return () => clearInterval(timer);
     }, []);
 
-    const handlePrev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-    const handleNext = () => setCurrent((prev) => (prev + 1) % slides.length);
+    const CurrentIcons = slides[current].icons;
 
     return (
-        // <section className="relative w-full h-[20vh] overflow-hidden text-white">
-        <section className="relative w-full h-[30vh] sm:h-[5vh] md:h-[30vh] lg:h-[60vh] overflow-hidden text-white">
-
+        <section
+            className="
+        relative w-full overflow-hidden text-white
+        h-[60vh] min-h-[420px]
+        md:h-[70vh] md:min-h-[520px]
+        lg:h-[80vh]
+      "
+        >
             <AnimatePresence mode="wait">
-                {slides.map((slide, index) =>
-                    index === current ? (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: 100 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -100 }}
-                            transition={{ duration: 0.8 }}
-                            className={`absolute inset-0 flex items-center justify-center bg-gradient-to-r ${slide.bg} px-6 md:px-20`}
-                        >
-                            <div className="max-w-2xl text-center md:text-left space-y-6">
-                                <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                                    {slide.title}
+                <motion.div
+                    key={current}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className={`absolute inset-0 bg-gradient-to-r ${slides[current].bg}`}
+                >
+                    <div className="max-w-7xl mx-auto h-full px-6 flex items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+
+                            {/* LEFT: Text */}
+                            <div className="max-w-3xl space-y-5 sm:space-y-6">
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                                    {slides[current].title}
                                 </h1>
-                                <p className="text-lg md:text-xl text-gray-100">{slide.subtitle}</p>
-                                <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 justify-center md:justify-start">
+
+                                <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl">
+                                    {slides[current].subtitle}
+                                </p>
+
+                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                                     <a
-                                        href="#contact"
-                                        className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-2xl transition-all"
+                                        href="/contact"
+                                        className="inline-flex justify-center items-center rounded-xl bg-white px-6 py-3 text-blue-700 font-semibold hover:bg-gray-100 transition"
                                     >
                                         Get Started
                                     </a>
-                                    {/* <a
-                                        href="#services"
-                                        className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-blue-700 transition-all"
-                                    >
-                                        Learn More
-                                    </a> */}
+
+
                                 </div>
                             </div>
-                        </motion.div>
-                    ) : null
-                )}
+
+                            {/* RIGHT: Visual / Icons */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.2, duration: 0.6 }}
+                                className="
+                  hidden lg:flex
+                  justify-center items-center
+                "
+                            >
+                                <div className="bg-white/10 backdrop-blur rounded-3xl p-10 flex gap-8 shadow-xl">
+                                    {CurrentIcons.map((Icon, i) => (
+                                        <div
+                                            key={i}
+                                            className="
+                        w-16 h-16 rounded-2xl
+                        bg-white/20
+                        flex items-center justify-center
+                      "
+                                        >
+                                            <Icon className="w-8 h-8 text-white" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                        </div>
+                    </div>
+                </motion.div>
             </AnimatePresence>
 
-            {/* Slider Controls */}
-            <button
-                onClick={handlePrev}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-3 transition-all"
-            >
-                &#10094;
-            </button>
-            <button
-                onClick={handleNext}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-3 transition-all"
-            >
-                &#10095;
-            </button>
-
-            {/* Dots */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                {slides.map((_, idx) => (
-                    <span
-                        key={idx}
-                        onClick={() => setCurrent(idx)}
-                        className={`w-3 h-3 rounded-full cursor-pointer transition-all ${idx === current ? "bg-white" : "bg-white/50"
+            {/* Indicators */}
+            <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+                {slides.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        aria-label={`Go to slide ${i + 1}`}
+                        className={`h-2 w-6 sm:w-8 rounded-full transition-all ${i === current ? "bg-white" : "bg-white/40"
                             }`}
-                    ></span>
+                    />
                 ))}
             </div>
         </section>

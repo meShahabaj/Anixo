@@ -1,67 +1,70 @@
 import React, { lazy, Suspense } from "react";
 import { motion, Variants } from "framer-motion";
 
-// Lazy load components
-const Header = lazy(() => import("./HomeUtils/Header.tsx"));
-const Banner = lazy(() => import("./HomeUtils/Banner.tsx"));
+// Eager load critical layout
+import Header from "./HomeUtils/Header.tsx";
+import Banner from "./HomeUtils/Banner.tsx";
+import Footer from "./HomeUtils/Footer.tsx";
+import ProjectsSection from "./HomeUtils/ProjectSection.tsx";
+
+// Lazy load non-critical sections
 const Services = lazy(() => import("./HomeUtils/Services.tsx"));
 const WhyServices = lazy(() => import("./HomeUtils/Reasons.tsx"));
-const ContactForm = lazy(() => import("./HomeUtils/ContactForm.tsx"));
 const TechnologiesSlider = lazy(() => import("./HomeUtils/TechnologiesSlider.tsx"));
-const Footer = lazy(() => import("./HomeUtils/Footer.tsx"));
+const ContactForm = lazy(() => import("./HomeUtils/ContactForm.tsx"));
 
-// Section animation variants
+// Section animation (enterprise-friendly)
 const sectionVariants: Variants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
         opacity: 1,
         y: 0,
-        scale: 1,
         transition: {
             duration: 0.5,
-            delay: i * 0.05,
-            ease: "easeInOut",
+            delay: i * 0.08,
+            ease: "easeOut",
         },
     }),
 };
 
-// Loading spinner
-const Loading = () => (
-    <div className="min-h-screen flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
-    </div>
+// Subtle skeleton loader
+const SectionSkeleton = () => (
+    <div className="h-64 bg-gray-100 animate-pulse rounded-xl my-16" />
 );
 
 const HomePage: React.FC = () => {
     const sections = [
-        { Component: Header },
-        { Component: Banner },
-        { Component: Services },
-        { Component: WhyServices },
-        { Component: ContactForm },
-        { Component: TechnologiesSlider },
-        { Component: Footer },
+        Services,
+        WhyServices,
+        ProjectsSection,
+        TechnologiesSlider,
+        ContactForm,
     ];
 
     return (
-        <div className="font-sans text-gray-800">
-            {sections.map((section, idx) => {
-                const SectionComponent = section.Component;
-                return (
-                    <motion.div
-                        key={idx}
-                        initial="hidden"
-                        whileInView="visible"
-                        custom={idx}
-                        variants={sectionVariants}
-                        viewport={{ amount: 0.2 }}
-                    >
-                        <Suspense fallback={<Loading />}>
-                            <SectionComponent />
-                        </Suspense>
-                    </motion.div>
-                );
-            })}
+        <div className="font-sans text-gray-800 bg-white">
+            {/* Critical content */}
+            <Header />
+            <Banner />
+
+            {/* Lazy sections */}
+            {sections.map((SectionComponent, idx) => (
+                <motion.section
+                    key={idx}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    custom={idx}
+                    variants={sectionVariants}
+                >
+                    <Suspense fallback={<SectionSkeleton />}>
+                        <SectionComponent />
+                    </Suspense>
+                </motion.section>
+            ))}
+
+            {/* Footer without animation */}
+            <Footer />
         </div>
     );
 };

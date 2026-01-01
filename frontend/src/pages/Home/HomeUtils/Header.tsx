@@ -1,109 +1,119 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [servicesOpen, setServicesOpen] = useState(false);
+const services = [
+    "ERP Solutions",
+    "CRM Systems",
+    "Business Management Software",
+    "Custom SaaS Development",
+    "E-Commerce Solutions",
+    "HR & Payroll Systems",
+    "Inventory & POS Systems",
+    "Accounting & Finance Software",
+    "Business Automation",
+    "Data Analytics & Reporting",
+];
 
-    const services = [
-        { name: "Web Development" },
-        { name: "App Development" },
-        { name: "AI Solution" },
-    ];
+const Header: React.FC = () => {
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
     return (
-        <header className="bg-white shadow-lg sticky top-0 z-50">
-            <div className="container mx-auto px-8 flex justify-between items-center h-20">
+        <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+            <div className="max-w-7xl mx-auto px-6 flex h-20 items-center justify-between">
 
                 {/* Logo */}
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">
-                    <Link to="/">Anixo</Link>
-                </div>
+                <Link
+                    to="/"
+                    className="text-3xl font-bold tracking-tight text-blue-600"
+                >
+                    Anixo
+                </Link>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-16 items-center relative text-lg">
+                {/* Desktop Nav */}
+                <nav className="hidden md:flex items-center gap-12 text-base font-medium text-gray-700">
 
                     {/* Services Dropdown */}
-                    <div
-                        className="relative group"
-                        onMouseEnter={() => setServicesOpen(true)}
-                        onMouseLeave={() => setServicesOpen(false)}
-                    >
-                        <button className="font-semibold flex items-center gap-2">
-                            Services
+                    <div className="relative group">
+                        <button className="flex items-center gap-1 hover:text-blue-600">
+                            Solutions
+                            <span className="text-sm">▾</span>
                         </button>
 
-                        <div className="absolute top-full left-0 mt-4 w-64 bg-white border rounded-2xl shadow-xl py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                            {services.map((service) => (
-                                <p
-                                    className="block px-6 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                                >
-                                    {service.name}
-                                </p>
-                            ))}
+                        <div className="absolute left-0 top-full mt-4 w-[420px] rounded-2xl bg-white shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                            <div className="grid grid-cols-2 gap-1 p-4">
+                                {services.map((service) => (
+                                    <span
+                                        key={service}
+                                        className="px-4 py-3 rounded-xl text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer"
+                                    >
+                                        {service}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    {/* Other Links */}
-                    <Link
-                        to="/about"
-                        className="font-medium relative hover:text-blue-600"
-                    >
+                    <Link to="/about" className="hover:text-blue-600">
                         About
                     </Link>
 
-                    {/* Contact Button */}
                     <Link
                         to="/contact"
-                        className="ml-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-xl hover:shadow-2xl transition-all font-semibold text-lg"
+                        className="ml-6 rounded-xl bg-blue-600 px-5 py-2.5 text-white font-semibold hover:bg-blue-700 transition"
                     >
-                        Contact Us
+                        Free Consultation
                     </Link>
                 </nav>
 
-                {/* Mobile Menu Button */}
-                <div className="md:hidden flex items-center">
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="text-gray-700"
-                    >
-                        ☰
-                    </button>
-                </div>
+                {/* Mobile Toggle */}
+                <button
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    className="md:hidden text-2xl text-gray-700"
+                    aria-label="Toggle menu"
+                >
+                    ☰
+                </button>
             </div>
 
             {/* Mobile Menu */}
-            <div className={`md:hidden bg-white shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? "max-h-screen py-6" : "max-h-0"}`}>
-                <nav className="flex flex-col px-6 space-y-4 text-lg">
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-[1000px] border-t" : "max-h-0"
+                    }`}
+            >
+                <nav className="px-6 py-6 space-y-4 text-gray-700">
 
+                    {/* Services */}
                     <button
-                        onClick={() => setServicesOpen(!servicesOpen)}
-                        className="flex justify-between w-full font-medium text-gray-700 py-3"
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        className="w-full flex justify-between items-center py-3 font-medium"
                     >
-                        Services ▼
+                        Solutions
+                        <span>{mobileServicesOpen ? "−" : "+"}</span>
                     </button>
 
-                    {servicesOpen && (
-                        <div className="flex flex-col mt-2 ml-4 space-y-2">
+                    {mobileServicesOpen && (
+                        <div className="ml-4 space-y-2">
                             {services.map((service) => (
-                                <p
-                                    className="py-3 text-gray-700 hover:bg-blue-50 rounded-lg"
+                                <div
+                                    key={service}
+                                    className="py-2 text-sm text-gray-600"
                                 >
-                                    {service.name}
-                                </p>
+                                    {service}
+                                </div>
                             ))}
                         </div>
                     )}
 
-                    <Link to="/about" className="hover:text-blue-600 py-2">
+                    <Link to="/about" className="block py-3">
                         About
                     </Link>
 
                     <Link
                         to="/contact"
-                        className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-xl hover:shadow-2xl text-center font-semibold"
+                        className="block mt-4 rounded-xl bg-blue-600 py-3 text-center font-semibold text-white"
                     >
-                        Contact Us
+                        Free Consultation
                     </Link>
                 </nav>
             </div>

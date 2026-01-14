@@ -16,37 +16,37 @@ const projects: Project[] = [
   {
     title: "Image Editor",
     pic: "Image_editor.jpg",
-    address: "https://shahabaj.onrender.com/projects/image_editor",
+    address: "https://shahabaj.onrender.com/#/projects/image_editor",
   },
   {
     title: "Face Extractor From Image",
     pic: "Face_locator.jpg",
-    address: "https://shahabaj.onrender.com/projects/face_extractor",
+    address: "https://shahabaj.onrender.com/#/projects/face_extractor",
   },
   {
     title: "AI (RAG) Chat Bot: About Me",
     pic: "pexels-thirdman-5592313.jpg",
-    address: "https://shahabaj.onrender.com/projects/assistant",
+    address: "https://shahabaj.onrender.com/#/projects/assistant",
   },
   {
     title: "Resume Scorer",
     pic: "resume_scorer.png",
-    address: "https://shahabaj.onrender.com/projects/resume_scorer",
+    address: "https://shahabaj.onrender.com/#/projects/resume_scorer",
   },
   {
     title: "Stone Paper Scissor (Live Gesture)",
     pic: "Stone_paper_scissor.jpg",
-    address: "https://shahabaj.onrender.com/projects/stone_paper_scissor",
+    address: "https://shahabaj.onrender.com/#/projects/stone_paper_scissor",
   },
   {
     title: "Salary Predictor",
     pic: "Salary_prediction_img.jpeg",
-    address: "https://shahabaj.onrender.com/projects/salary_predictor",
+    address: "https://shahabaj.onrender.com/#/projects/salary_predictor",
   },
   {
     title: "Anixo: IT Solutions",
     pic: "anixo.png",
-    address: "https://anixo.onrender.com/",
+    address: "https://anixo.vercel.app/",
   },
 ];
 

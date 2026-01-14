@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <Services/>
-      <Reasons/>
-      <ProjectsSection/>
-      <ContactForm/>
+      <Reasons />
+      <Services />
+
+      <ProjectsSection />
+      <ContactForm />
       <TechnologiesSlider />
-      
     </div>
   );
 }

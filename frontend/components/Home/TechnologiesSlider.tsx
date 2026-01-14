@@ -28,9 +28,9 @@ const sliderVariants: Variants = {
 
 const TechnologiesSlider = () => {
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-black">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-extrabold text-gray-800 mb-12 text-center">
+                <h2 className="text-4xl font-extrabold text-white mb-12 text-center">
                     Technologies We Work With
                 </h2>
 

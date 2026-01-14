@@ -21,13 +21,13 @@ const Header = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-      <div className="max-w-7xl mx-auto px-6 flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-50 bg-black backdrop-blur border-b ">
+      <div className="max-w-7xl mx-auto px-6 flex h-20 items-center justify-between ">
 
         {/* Logo */}
         <Link
           href="/"
-          className="text-3xl font-bold tracking-tight text-blue-600"
+          className="text-4xl font-bold tracking-tight text-white"
         >
           Anixo
         </Link>
@@ -37,17 +37,17 @@ const Header = () => {
 
           {/* Services Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 hover:text-blue-600">
-              Solutions
+            <button className="flex items-center gap-1 text-white hover:text-blue-600 hover:cursor-pointer">
+              Services
               <span className="text-sm">▾</span>
             </button>
 
             <div className="absolute left-0 top-full mt-4 w-[420px] rounded-2xl bg-white shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <div className="grid grid-cols-2 gap-1 p-4">
+              <div className="grid grid-cols-2 gap-1 p-3">
                 {services.map((service) => (
                   <span
                     key={service}
-                    className="px-4 py-3 rounded-xl text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer"
+                    className="px-4 py-3 rounded-xl text-sm text-black hover:bg-black hover:text-white cursor-pointer"
                   >
                     {service}
                   </span>
@@ -56,13 +56,13 @@ const Header = () => {
             </div>
           </div>
 
-          <Link href="/about" className="hover:text-blue-600">
+          <Link href="/about" className="text-white hover:text-blue-600">
             About
           </Link>
 
           <Link
             href="/contact"
-            className="ml-6 rounded-xl bg-blue-600 px-5 py-2.5 text-white font-semibold hover:bg-blue-700 transition"
+            className="ml-6 rounded-xl bg-white px-5 py-2.5 text-black font-semibold hover:bg-blue-600 transition hover:text-white"
           >
             Free Consultation
           </Link>
@@ -71,7 +71,7 @@ const Header = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-2xl text-gray-700"
+          className="md:hidden text-2xl text-white"
           aria-label="Toggle menu"
         >
           ☰
@@ -80,11 +80,10 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-[1000px] border-t" : "max-h-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-[1000px] border-t" : "max-h-0"
+          }`}
       >
-        <nav className="px-6 py-6 space-y-4 text-gray-700">
+        <nav className="px-6 py-6 space-y-4 text-white">
 
           {/* Services */}
           <button
@@ -100,7 +99,7 @@ const Header = () => {
               {services.map((service) => (
                 <div
                   key={service}
-                  className="py-2 text-sm text-gray-600"
+                  className="py-2 text-sm text-white"
                 >
                   {service}
                 </div>
@@ -114,7 +113,7 @@ const Header = () => {
 
           <Link
             href="/contact"
-            className="block mt-4 rounded-xl bg-blue-600 py-3 text-center font-semibold text-white"
+            className="block mt-4 rounded-xl bg-white hover:bg-blue-600 py-3 text-center font-semibold text-black hover:text-white transition"
           >
             Free Consultation
           </Link>

@@ -7,10 +7,10 @@ import {
 
 const About = () => {
     return (
-        <div className="bg-gray-50 min-h-screen text-gray-800">
+        <div className="bg-black min-h-screen text-gray-800">
 
             {/* Hero */}
-            <section className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white">
+            <section className="text-white">
                 <div className="max-w-7xl mx-auto px-6 py-28">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">
                         About Anixo

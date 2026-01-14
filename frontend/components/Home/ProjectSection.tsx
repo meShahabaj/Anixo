@@ -49,19 +49,18 @@ const projects: Project[] = [
     address: "https://anixo.vercel.app/",
   },
 ];
-
 export default function ProjectsSection() {
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-sky-50 to-white px-[6%] py-16">
+    <section className="bg-black px-4 sm:px-[6%] py-12 sm:py-16">
       {/* Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-sky-600">
+      <div className="text-center mb-10 sm:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
           Products
         </h2>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-[1400px] mx-auto">
         {projects.map((p) => (
           <Link
             key={p.title}
@@ -71,16 +70,16 @@ export default function ProjectsSection() {
             className="
               group block h-full
               rounded-2xl overflow-hidden
-              bg-white/70 backdrop-blur
+              bg-white backdrop-blur
               shadow-md hover:shadow-xl
               transition-all duration-500
               hover:bg-sky-50/80
             "
           >
             {/* Image */}
-            <div className="relative w-full h-56 overflow-hidden">
+            <div className="relative w-full h-44 sm:h-52 md:h-56 overflow-hidden">
               <Image
-                src={`/${p.pic}`}
+                src={`/ProjectImages/${p.pic}`}
                 alt={p.title}
                 fill
                 className="
@@ -88,17 +87,17 @@ export default function ProjectsSection() {
                   transition-transform duration-700
                   group-hover:scale-[1.03]
                 "
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
             </div>
 
             {/* Content */}
-            <div className="p-5">
+            <div className="p-4 sm:p-5">
               <div className="h-[2px] w-0 bg-sky-500 transition-all duration-500 group-hover:w-full" />
 
               <h3
                 className="
-                  text-lg font-semibold mb-1
+                  text-base sm:text-lg font-semibold mb-1
                   text-slate-800
                   transition-colors duration-300
                   group-hover:text-sky-600
@@ -109,7 +108,7 @@ export default function ProjectsSection() {
 
               <p
                 className="
-                  text-sm text-slate-500
+                  text-xs sm:text-sm text-slate-500
                   transition-colors duration-300
                   group-hover:text-sky-500
                 "

@@ -1,56 +1,45 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import {
-  Server,
-  Cloud,
-  Database,
-  Smartphone,
-  Monitor,
-  ShieldCheck,
-  Brain,
-  Bot,
-  LineChart,
-} from "lucide-react";
 
 const slides = [
   {
-    title: "Enterprise-Grade Software Solutions",
+    title: "Software Solutions",
     subtitle:
-      "We design and build scalable digital systems that streamline operations and drive measurable growth.",
-    bg: "from-blue-700 to-indigo-800",
-    icons: [Server, Cloud, Database],
+      "We build scalable systems that improve operations and support long-term growth.",
   },
   {
-    title: "Custom Web & Mobile Applications",
+    title: "Web & Mobile Applications",
     subtitle:
-      "Secure, high-performance platforms engineered for long-term business success.",
-    bg: "from-slate-700 to-slate-900",
-    icons: [Smartphone, Monitor, ShieldCheck],
+      "Secure, high-performance platforms designed for reliability and scale.",
   },
   {
-    title: "AI & Automation for Modern Businesses",
+    title: "AI & Automation",
     subtitle:
-      "Reduce costs, improve efficiency, and gain insights with intelligent automation.",
-    bg: "from-emerald-700 to-teal-800",
-    icons: [Brain, Bot, LineChart],
+      "Practical automation that reduces costs and improves decision-making.",
   },
 ];
 
+
+const SLIDE_DURATION = 5000;
+
 const Banner = () => {
   const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(
-      () => setCurrent((c) => (c + 1) % slides.length),
-      7000
-    );
-    return () => clearInterval(timer);
-  }, []);
+    const interval = setInterval(() => {
+      setFade(false);
 
-  const CurrentIcons = slides[current].icons;
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % slides.length);
+        setFade(true);
+      }, 300);
+    }, SLIDE_DURATION);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -61,78 +50,35 @@ const Banner = () => {
         lg:h-[80vh]
       "
     >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`absolute inset-0 bg-gradient-to-r ${slides[current].bg}`}
-        >
-          <div className="max-w-7xl mx-auto h-full px-6 flex items-center">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      <div className="absolute inset-0 bg-black z-0">
+        <div className="max-w-7xl mx-auto h-full px-5 flex flex-col items-center justify-center">
+          <div
+            className={`
+              text-center max-w-3xl transition-all duration-300
+              ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
+            `}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-6xl font-bold leading-tight">
+              {slides[current].title}
+            </h1>
 
-              {/* LEFT: Text */}
-              <div className="max-w-3xl space-y-5 sm:space-y-6">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  {slides[current].title}
-                </h1>
+            <p className="mt-5 text-base sm:text-lg md:text-lg text-white/90 max-w-2xl mx-auto">
+              {slides[current].subtitle}
+            </p>
 
-                <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl">
-                  {slides[current].subtitle}
-                </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex justify-center items-center rounded-xl bg-white px-6 py-3 text-blue-700 font-semibold hover:bg-gray-100 transition"
-                  >
-                    Get Started
-                  </Link>
-                </div>
-              </div>
-
-              {/* RIGHT: Icons */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="hidden lg:flex justify-center items-center"
-              >
-                <div className="bg-white/10 backdrop-blur rounded-3xl p-10 flex gap-8 shadow-xl">
-                  {CurrentIcons.map((Icon, i) => (
-                    <div
-                      key={i}
-                      className="
-                        w-16 h-16 rounded-2xl
-                        bg-white/20
-                        flex items-center justify-center
-                      "
-                    >
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-            </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
+          <div className="mt-8 animate-float">
+            <Link
+              href="/contact"
+              className="inline-flex justify-center items-center rounded-xl bg-blue-600 px-8 py-3 text-white font-semibold hover:bg-white hover:text-black transition"
+            >
+              Let's Connect
+            </Link>
+          </div>
 
-      {/* Indicators */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-2 w-6 sm:w-8 rounded-full transition-all ${
-              i === current ? "bg-white" : "bg-white/40"
-            }`}
-          />
-        ))}
+        </div>
+
       </div>
     </section>
   );

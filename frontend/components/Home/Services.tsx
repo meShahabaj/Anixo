@@ -1,4 +1,3 @@
-import React from "react";
 import {
     CodeBracketIcon,
     DevicePhoneMobileIcon,
@@ -31,15 +30,15 @@ const services = [
 
 const Services = () => {
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-black">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header */}
-                <div className="max-w-3xl mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        Technology Solutions for Modern Businesses
+                <div className="max-w-3xl mb-16 text-center mx-auto">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        Tech for Modern Businesses
                     </h2>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-white">
                         We partner with organizations to design, build, and scale digital
                         solutions that deliver long-term business value.
                     </p>

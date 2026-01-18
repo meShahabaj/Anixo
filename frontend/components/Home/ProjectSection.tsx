@@ -11,7 +11,7 @@ const projects: Project[] = [
   {
     title: "Techis Talk",
     pic: "Techis_talk.png",
-    address: "https://techistalk.onrender.com/",
+    address: "https://techistalk.vercel.app/",
   },
   {
     title: "Image Editor",

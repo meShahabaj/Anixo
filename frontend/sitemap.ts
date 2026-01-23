@@ -1,0 +1,23 @@
+import type { MetadataRoute } from "next";
+
+const pages = ["about", "contact"];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+    const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL;
+
+    const pagesUrl = pages.map(page => ({
+        url: `${baseUrl}/${page}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+    }));
+
+    return [
+        {
+            url: `${baseUrl}/`,
+            lastModified: new Date(),
+            priority: 1,
+        },
+        ...pagesUrl,
+    ];
+}

@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const pages = ["about", "contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL;
+    const baseUrl = process.env.FRONTEND_URL;
 
     const pagesUrl = pages.map(page => ({
         url: `${baseUrl}/${page}`,
